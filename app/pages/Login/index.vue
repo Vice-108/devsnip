@@ -17,9 +17,9 @@
 							<UiButton class="w-full" type="submit" text="Log in" />
 						</div>
 						<UiDivider label="OR" />
-						<UiButton variant="outline" type="button" @click="signInWithGoogle()">
-							<Icon class="size-4" name="logos:google-icon" />
-							<span class="ml-2">Continue with Google</span>
+						<UiButton variant="outline" type="button" @click="signInWithGithub()">
+							<Icon class="size-4" name="mdi-github" />
+							<span class="ml-2">Continue with Github</span>
 						</UiButton>
 					</fieldset>
 				</form>
@@ -43,7 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-	import z from "zod";
+	import { signIn } from "~/lib/auth-client";
+	import * as z from "zod";
 
 	useSeoMeta({
 		title: "Log in",
@@ -51,7 +52,7 @@
 	});
 
 	const LoginSchema = z.object({
-		email: z.email(),
+		email: z.email().transform((email) => email.trim()),
 		password: z.string().min(8),
 	});
 
@@ -65,9 +66,23 @@
 		});
 	});
 
-	const signInWithGoogle = () => {
-		useSonner("Logged in successfully!", {
-			description: "You have successfully logged in with Google.",
+	const signInWithGithub = () => {
+		signIn.social({
+			provider: "github",
+			callbackURL: "/dashboard",
+			fetchOptions: {
+				onSuccess: () => {
+					useSonner.success("Logged in successfully!", {
+						description: "You have successfully logged in with Github.",
+					});
+					navigateTo("/dashboard");
+				},
+				onError: (context) => {
+					useSonner.error("Login failed", {
+						description: context?.error?.message || "Please check your email and password",
+					});
+				},
+			},
 		});
 	};
 </script>

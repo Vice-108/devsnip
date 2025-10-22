@@ -35,7 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-	import z from "zod";
+	import { signIn } from "~/lib/auth-client";
+	import * as z from "zod";
 
 	const title = "Sign Up";
 	const description = "Create an account to get started.";
@@ -55,7 +56,16 @@
 		console.log("logged");
 	});
 
-	const signInWithGithub = () => {
+	const signInWithGithub = async () => {
+		await signIn.social({
+			provider: "github",
+			callbackURL: "/dashboard",
+			fetchOptions: {
+				onError: (context) => {
+					console.log(context?.error?.message || "Please check your email and password");
+				},
+			},
+		});
 		console.log("github");
 	};
 </script>
