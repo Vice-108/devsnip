@@ -35,7 +35,6 @@
 </template>
 
 <script lang="ts" setup>
-	import { ref } from "vue";
 	import z from "zod";
 
 	const title = "Sign Up";
@@ -52,74 +51,11 @@
 	const { handleSubmit, isSubmitting } = useForm<z.infer<typeof Schema>>({
 		validationSchema: Schema,
 	});
-
-	const { signUp, signIn } = useAuth();
-
-	const submit = handleSubmit(async (formValues: z.infer<typeof Schema>) => {
-		try {
-			const result = await signUp.email({
-				name: formValues.name,
-				email: formValues.email,
-				password: formValues.password,
-			});
-
-			if (result.error) {
-				useSonner.error("Sign up failed", {
-					description: result.error.message || "Something went wrong.",
-				});
-				return;
-			}
-
-			useSonner.success("Account created!", {
-				description: "You have successfully created an account.",
-			});
-
-			// Redirect to dashboard or home
-			await navigateTo("/dashboard");
-		} catch (err) {
-			useSonner.error("Sign up failed", {
-				description: (err as Error)?.message ?? "An error occurred.",
-			});
-		}
+	const submit = handleSubmit(async (values) => {
+		console.log("logged");
 	});
 
-	const signInState = ref<"idle" | "initiated" | "redirecting" | "completed" | "failed">("idle");
-
-	const signInWithGithub = async () => {
-		try {
-			signInState.value = "initiated";
-			console.log("[GitHubSign] state:", signInState.value);
-
-			useSonner.info("Redirecting to Github for authentication...");
-			signInState.value = "redirecting";
-			console.log("[GitHubSign] state:", signInState.value);
-
-			const result = await signIn.social({ provider: "github" });
-			console.log("[GitHubSign] result:", result);
-
-			if (result?.error) {
-				signInState.value = "failed";
-				console.log("[GitHubSign] state:", signInState.value, "error:", result.error);
-				useSonner.error("Github sign-in failed", {
-					description: result.error.message || "An error occurred.",
-				});
-				return;
-			}
-
-			signInState.value = "completed";
-			console.log("[GitHubSign] state:", signInState.value);
-
-			useSonner.success("Logged in", {
-				description: "You have successfully logged in with Github.",
-			});
-
-			await navigateTo("/dashboard");
-		} catch (err) {
-			signInState.value = "failed";
-			console.log("[GitHubSign] state:", signInState.value, "exception:", err);
-			useSonner.error("Github sign-in failed", {
-				description: (err as Error)?.message ?? "An error occurred.",
-			});
-		}
+	const signInWithGithub = () => {
+		console.log("github");
 	};
 </script>
