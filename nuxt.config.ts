@@ -4,20 +4,18 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: false },
-	// runtimeConfig: {
-	// 	betterAuthUrl: "",
-	// 	betterAuthSecret: "",
-	// 	databaseUrl: "",
-	// 	databaseAuthToken: "",
-	// 	githubClientId: "",
-	// 	githubClientSecret: "",
-	// },
+
+	app: {
+		layoutTransition: { name: "layout", mode: "out-in" },
+	},
 
 	css: ["~/assets/css/tailwind.css"],
 	vite: {
 		plugins: [tailwindcss() as any],
 	},
-
+	routeRules: {
+		"/dashboard/**/*": { ssr: false },
+	},
 	modules: ["@nuxtjs/color-mode", "motion-v/nuxt", "@vueuse/nuxt", "@nuxt/icon", "@nuxt/fonts", "@vee-validate/nuxt", "vue-sonner/nuxt"],
 
 	imports: {

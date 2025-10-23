@@ -5,7 +5,7 @@
 				<h1 class="text-2xl font-bold tracking-tight lg:text-3xl">{{ title }}</h1>
 				<p class="text-muted-foreground mt-1">{{ description }}</p>
 
-				<form class="mt-10" @submit="submit">
+				<form class="mt-10" @submit.prevent="submit">
 					<fieldset :disabled="isSubmitting" class="grid gap-5">
 						<UiVeeInput required label="Name" name="name" placeholder="John Doe" />
 						<UiVeeInput required label="Email" type="email" name="email" placeholder="john@example.com" />
@@ -35,13 +35,16 @@
 </template>
 
 <script lang="ts" setup>
-	import { signIn } from "~/lib/auth-client";
+	import { signIn, signUp } from "~/lib/auth-client";
 	import * as z from "zod";
 
 	const title = "Sign Up";
 	const description = "Create an account to get started.";
 
 	useSeoMeta({ title, description });
+	definePageMeta({
+		layout: "default",
+	});
 
 	const Schema = z.object({
 		name: z.string().min(3).max(50).nonempty().describe("Name"),
@@ -50,10 +53,27 @@
 	});
 
 	const { handleSubmit, isSubmitting } = useForm<z.infer<typeof Schema>>({
-		validationSchema: Schema,
+		validationSchema: toTypedSchema(Schema),
 	});
 	const submit = handleSubmit(async (values) => {
-		console.log("logged");
+		try {
+			await signUp.email({
+				email: values.email,
+				password: values.password,
+				name: values.name,
+				fetchOptions: {
+					onSuccess: (context) => {
+						useSonner.success("Account created successfully!");
+						navigateTo("/dashboard");
+					},
+					onError: (context) => {
+						useSonner.error(context?.error?.message || "Please check your email and password");
+					},
+				},
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	});
 
 	const signInWithGithub = async () => {

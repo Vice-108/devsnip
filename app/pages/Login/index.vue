@@ -50,6 +50,9 @@
 		title: "Log in",
 		description: "Enter your email & password to log in.",
 	});
+	definePageMeta({
+		layout: "default",
+	});
 
 	const LoginSchema = z.object({
 		email: z.email().transform((email) => email.trim()),
@@ -57,13 +60,29 @@
 	});
 
 	const { handleSubmit, isSubmitting } = useForm<z.infer<typeof LoginSchema>>({
-		validationSchema: LoginSchema,
+		validationSchema: toTypedSchema(LoginSchema),
 	});
 
-	const submit = handleSubmit(async (_) => {
-		useSonner("Logged in successfully!", {
-			description: "You have successfully logged in.",
-		});
+	const submit = handleSubmit(async (values) => {
+		try {
+			await signIn.email({
+				email: values.email,
+				password: values.password,
+				fetchOptions: {
+					onSuccess: () => {
+						useSonner.success("Logged in successfully!", {
+							description: "You have successfully logged in.",
+						});
+						navigateTo("/dashboard");
+					},
+					onError: (context) => {
+						useSonner.error(context?.error?.message || "Please check your email and password");
+					},
+				},
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	});
 
 	const signInWithGithub = () => {
