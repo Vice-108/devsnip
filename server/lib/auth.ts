@@ -5,12 +5,6 @@ import * as Authschema from "../db/schemas/auth-schema";
 import { db } from "../utils/drizzle";
 
 const auth = betterAuth({
-	session: {
-		cookieCache: {
-			enabled: true,
-			maxAge: 5 * 60, // in seconds, e.g., 5 minutes
-		},
-	},
 	database: drizzleAdapter(db, {
 		provider: "sqlite",
 		schema: Authschema,
