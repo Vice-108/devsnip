@@ -26,7 +26,7 @@
 	const forwarded = reactiveOmit(props, "class", "constrained");
 
 	const styles = tv({
-		base: "mx-auto w-full",
+		base: "mx-auto w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl)",
 		variants: {
 			constrained: {
 				true: "sm:px-6",

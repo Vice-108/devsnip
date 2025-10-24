@@ -19,10 +19,8 @@
 		</UiSidebar>
 
 		<UiSidebarInset>
-			<UiNavbar sticky>
-				<UiContainer class="flex h-12 items-center">
-					<UiSidebarTrigger />
-				</UiContainer>
+			<UiNavbar sticky class="px-1.5 py-3">
+				<UiSidebarTrigger class="ml-5" />
 			</UiNavbar>
 			<NuxtPage />
 		</UiSidebarInset>
