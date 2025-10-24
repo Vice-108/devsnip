@@ -7,7 +7,7 @@
 			</div>
 
 			<!-- Bento Grid Layout -->
-			<div class="relative mt-16 grid auto-rows-[minmax(280px,auto)] gap-4 rounded-2xl border p-2 md:grid-cols-6">
+			<div class="relative mt-16 grid auto-rows-[minmax(280px,auto)] gap-2 rounded-2xl border p-2 md:grid-cols-6">
 				<motion.div
 					v-for="(feature, index) in features"
 					:key="feature.id"
@@ -34,7 +34,7 @@
 					<p class="text-muted-foreground relative z-10">{{ feature.description }}</p>
 					<div class="bg-primary/5 absolute -top-6 -right-6 h-24 w-24 rounded-full transition-transform group-hover:scale-150"></div>
 				</motion.div>
-				<EffectsBorderBeam :size="100" :borderWidth="5" />
+				<EffectsBorderBeam :size="250" :borderWidth="8" />
 			</div>
 		</UiContainer>
 	</section>
