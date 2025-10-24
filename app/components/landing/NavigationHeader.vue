@@ -34,7 +34,7 @@
 											<span class="text-base">{{ link.name }}</span>
 										</UiButton>
 										<UiGradientDivider class="my-5" />
-										<div class="flex flex-col gap-3">
+										<div class="flex flex-col gap-3 p-1">
 											<div class="flex items-center gap-3">
 												<UiButton effect="ringHover" to="/login" variant="outline" class="flex-1">Log in</UiButton>
 												<UiButton effect="ringHover" to="/signup" class="flex-1">Sign up</UiButton>
