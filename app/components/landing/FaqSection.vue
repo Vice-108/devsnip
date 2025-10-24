@@ -1,12 +1,12 @@
 <template>
 	<section id="faq" class="py-20 lg:py-32">
 		<UiContainer class="relative">
-			<div class="mx-auto max-w-2xl text-center">
+			<div class="bg-muted mx-auto rounded-2xl py-16 text-center">
 				<h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-5xl">Frequently Asked Questions</h2>
 				<p class="text-muted-foreground text-lg">Everything you need to know about DevSnip.</p>
 			</div>
 
-			<div class="bg-muted/60 mx-auto mt-16 max-w-3xl rounded-2xl p-6 lg:p-10">
+			<div class="bg-muted mx-auto mt-16 rounded-2xl p-6 lg:p-10">
 				<UiAccordion :items="faqs" type="single" collapsible class="w-full">
 					<template #trigger="{ item }">
 						<UiAccordionTrigger class="text-[15px] leading-6 hover:no-underline">

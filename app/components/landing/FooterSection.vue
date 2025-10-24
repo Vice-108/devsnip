@@ -1,5 +1,5 @@
 <template>
-	<footer class="bg-muted/30 border-t py-12">
+	<footer class="bg-muted border-t py-12">
 		<UiContainer class="relative">
 			<div class="grid gap-8 md:grid-cols-4">
 				<!-- Brand Column -->

@@ -1,13 +1,13 @@
 <template>
 	<section id="features" class="py-20 lg:py-32">
 		<UiContainer>
-			<div class="bg-muted/50 mx-auto w-full rounded-2xl py-10 text-center">
+			<div class="bg-muted mx-auto w-full rounded-2xl py-10 text-center">
 				<h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Everything You Need to Manage Code Snippets</h2>
 				<p class="text-muted-foreground text-lg">Powerful features designed to streamline your development workflow and boost productivity.</p>
 			</div>
 
 			<!-- Bento Grid Layout -->
-			<div class="mt-16 grid auto-rows-[minmax(280px,auto)] gap-4 md:grid-cols-6">
+			<div class="relative mt-16 grid auto-rows-[minmax(280px,auto)] gap-4 rounded-2xl border p-2 md:grid-cols-6">
 				<motion.div
 					v-for="(feature, index) in features"
 					:key="feature.id"
@@ -34,6 +34,7 @@
 					<p class="text-muted-foreground relative z-10">{{ feature.description }}</p>
 					<div class="bg-primary/5 absolute -top-6 -right-6 h-24 w-24 rounded-full transition-transform group-hover:scale-150"></div>
 				</motion.div>
+				<BorderBeam :size="100" :borderWidth="5" />
 			</div>
 		</UiContainer>
 	</section>

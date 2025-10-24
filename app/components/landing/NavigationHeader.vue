@@ -1,5 +1,5 @@
 <template>
-	<header id="nav" class="z-20 border-b backdrop-blur">
+	<header id="nav" class="sticky top-0 z-20 border-b backdrop-blur">
 		<UiContainer class="flex h-16 items-center justify-between lg:h-20">
 			<!-- Logo & Branding -->
 			<div class="flex items-center gap-10">

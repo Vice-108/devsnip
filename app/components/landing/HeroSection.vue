@@ -3,7 +3,7 @@
 		<UiContainer class="relative">
 			<div class="mx-auto max-w-4xl text-center">
 				<motion.div :initial="{ opacity: 0, y: 20 }" :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.5 }">
-					<div class="bg-muted/60 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm backdrop-blur-sm">
+					<div class="bg-muted mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm backdrop-blur-sm">
 						<Icon name="lucide:sparkles" class="text-primary size-4" />
 						<span class="font-medium">Your Code, Organized & Accessible</span>
 					</div>
