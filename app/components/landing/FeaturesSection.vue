@@ -34,7 +34,7 @@
 					<p class="text-muted-foreground relative z-10">{{ feature.description }}</p>
 					<div class="bg-primary/5 absolute -top-6 -right-6 h-24 w-24 rounded-full transition-transform group-hover:scale-150"></div>
 				</motion.div>
-				<BorderBeam :size="100" :borderWidth="5" />
+				<EffectsBorderBeam :size="100" :borderWidth="5" />
 			</div>
 		</UiContainer>
 	</section>

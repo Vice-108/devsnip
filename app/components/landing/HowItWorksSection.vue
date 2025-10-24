@@ -1,7 +1,7 @@
 <template>
 	<section id="how-it-works">
 		<UiContainer>
-			<div class="bg-muted border-muted/50 mx-auto rounded-2xl border px-10 py-20 shadow-lg sm:px-16 lg:px-24">
+			<div class="bg-muted border-muted/50 relative rounded-2xl border px-10 py-20 shadow-lg sm:px-16 lg:px-24">
 				<div class="mx-auto max-w-2xl text-center">
 					<h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Start Organizing in 3 Simple Steps</h2>
 					<p class="text-muted-foreground text-lg">Get up and running with DevSnip in less than a minute.</p>
@@ -19,11 +19,11 @@
 						<div v-if="index < steps.length" class="from-primary absolute top-8 right-0 hidden h-0.5 w-full bg-linear-to-r to-transparent md:block"></div>
 					</div>
 				</div>
+				<EffectsInteractiveGrid :class="['mask-[radial-gradient(450px_circle_at_center,white,transparent)]', 'rounded-2xl']" squares-class-name="hover:fill-primary/40" />
 			</div>
 		</UiContainer>
 	</section>
 </template>
-
 <script setup lang="ts">
 	const steps = [
 		{

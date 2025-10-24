@@ -1,7 +1,7 @@
 <template>
 	<section class="py-20 lg:py-32">
 		<UiContainer>
-			<div class="from-primary/10 via-background to-background relative overflow-hidden rounded-2xl border bg-linear-to-br p-12 lg:p-20">
+			<div class="from-primary/60 via-background to-background relative overflow-hidden rounded-2xl border bg-linear-to-br p-12 lg:p-20">
 				<div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
 				<div class="relative mx-auto max-w-3xl text-center">

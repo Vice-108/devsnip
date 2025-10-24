@@ -33,7 +33,7 @@
 					<div class="relative mx-auto max-w-5xl">
 						<div class="border-muted bg-muted/50 relative overflow-hidden rounded-lg border-5 p-1 shadow-2xl backdrop-blur-sm">
 							<div class="bg-accent/20 aspect-video rounded-lg p-2 backdrop-blur-md"></div>
-							<BorderBeam :size="150" :borderWidth="4" />
+							<EffectsBorderBeam :size="150" :borderWidth="4" />
 						</div>
 					</div>
 				</motion.div>
