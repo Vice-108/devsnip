@@ -9,7 +9,6 @@
 <script setup lang="ts">
 	definePageMeta({
 		layout: "app",
-		ssr: false,
 	});
 
 	// Use the session from the plugin instead of calling useSession() again
