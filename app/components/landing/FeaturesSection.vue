@@ -25,7 +25,7 @@
 					]"
 				>
 					<!-- Both Border Beam and Meteors on all cards -->
-					<UiMeteors :number="8" class="opacity-30" />
+					<EffectsMeteors :number="8" class="opacity-30" />
 
 					<div class="bg-primary/10 relative z-10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg">
 						<Icon :name="feature.icon" class="text-primary size-6" />
