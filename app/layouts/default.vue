@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <NavigationHeader />
-    <slot />
-  </div>
+	<div class="font-mono">
+		<slot />
+	</div>
 </template>
