@@ -1,9 +1,13 @@
 <template>
-	<div class="relative min-h-screen w-full">
+	<div class="bg-background relative min-h-screen w-full">
 		<div
-			class="z-00 absolute inset-0"
+			class="absolute inset-0 opacity-30"
 			:style="{
-				background: `radial-gradient(ellipse 90% 25% at 50% 0%, oklch(from var(--primary) l c h / 0.8), transparent 70%), oklch(from var(--background) l c h)`,
+				backgroundImage: `
+              linear-gradient(var(--border) 1px, transparent 25px),
+              linear-gradient(90deg, var(--border) 1px, transparent 25px)
+            `,
+				'background-size': '60px 60px',
 			}"
 		/>
 		<div class="relative z-10">
@@ -11,3 +15,5 @@
 		</div>
 	</div>
 </template>
+
+<script setup lang="ts"></script>
