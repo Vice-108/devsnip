@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-	import { cn } from "@/lib/utils";
+	import { cn } from "~/utils/utils";
 	import { motion } from "motion-v";
 	import type { Transition } from "motion-v";
 	import type { CSSProperties } from "vue";
