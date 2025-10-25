@@ -4,7 +4,7 @@
 		<UiSidebarGroupContent>
 			<UiSidebarMenu>
 				<UiSidebarMenuItem v-for="item in items" :key="item.title">
-					<UiSidebarMenuButton as-child>
+					<UiSidebarMenuButton as-child :tooltip="item.title">
 						<NuxtLink :href="item.url">
 							<Icon :name="item.icon" />
 							<span>{{ item.title }}</span>
@@ -17,10 +17,7 @@
 </template>
 <script lang="ts" setup>
 	const items = [
-		{ title: "Home", url: "#", icon: "lucide:home" },
-		{ title: "Inbox", url: "#", icon: "lucide:inbox" },
-		{ title: "Calendar", url: "#", icon: "lucide:calendar" },
-		{ title: "Search", url: "#", icon: "lucide:search" },
-		{ title: "Settings", url: "#", icon: "lucide:settings" },
+		{ title: "Home", url: "/dashboard", icon: "lucide:home" },
+		{ title: "Account", url: "/account", icon: "lucide:user" },
 	];
 </script>

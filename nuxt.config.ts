@@ -18,7 +18,16 @@ export default defineNuxtConfig({
 	vite: {
 		plugins: [tailwindcss() as any],
 	},
-	modules: ["@nuxtjs/color-mode", "motion-v/nuxt", "@vueuse/nuxt", "@nuxt/icon", "@nuxt/fonts", "@vee-validate/nuxt", "vue-sonner/nuxt"],
+	modules: [
+		"@nuxtjs/color-mode",
+		"motion-v/nuxt",
+		"@vueuse/nuxt",
+		"@nuxt/icon",
+		"@nuxt/fonts",
+		"@vee-validate/nuxt",
+		"vue-sonner/nuxt",
+		"@pinia/nuxt",
+	],
 	imports: {
 		imports: [
 			{
