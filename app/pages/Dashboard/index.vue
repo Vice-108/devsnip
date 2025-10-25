@@ -7,11 +7,10 @@
 </template>
 
 <script setup lang="ts">
+	import { useSession } from "~/lib/auth-client";
+
 	definePageMeta({
 		layout: "app",
 	});
-
-	// Use the session from the plugin instead of calling useSession() again
-	const { $session } = useNuxtApp();
-	const session = $session;
+	const session = useSession();
 </script>
