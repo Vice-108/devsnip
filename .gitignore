@@ -9,7 +9,7 @@ dist
 .vscode
 # Node dependencies
 node_modules
-
+sqlite.db
 # Logs
 logs
 *.log
