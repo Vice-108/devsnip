@@ -4,7 +4,7 @@
 			<!-- Logo & Branding -->
 			<div class="flex items-center gap-10">
 				<NuxtLink to="/#nav" class="flex items-center gap-3">
-					<img src="https://placehold.co/32x32/png?text=DS" fit="contain" alt="DevSnips Logo" title="DevSnips" class="h-6 rounded object-contain lg:h-8" />
+					<img src="https://placehold.co/32x32/png?text=DS" alt="DevSnips Logo" title="DevSnips" class="h-6 rounded object-contain lg:h-8" />
 					<span class="font-semibold lg:text-lg">DevSnips</span>
 				</NuxtLink>
 
